@@ -78,3 +78,15 @@ Dán đoạn trace chứng minh lỗi và nêu nguyên nhân có thể xảy ra.
 - **Giới hạn của điểm judge:** Điểm số từ LLM judge là một phép đánh giá xấp xỉ mang tính ước lượng, đôi khi có thể thiên lệch hoặc trả về định dạng JSON chưa chuẩn gây ảnh hưởng đến việc chấm tự động.
 - **Giới hạn của snapshot:** Dữ liệu trong snapshot được lưu cố định tại ngày 09/11/2026, chỉ phản ánh trạng thái lịch sử tại thời điểm đó chứ không đại diện cho tình trạng thực tế ngoài đời của GitHub hay Cloudflare.
 - **Giới hạn của số lần chạy:** Việc chạy một lần cho mỗi phiên bản không đủ chứng minh độ ổn định tuyệt đối (variance) của mô hình do tính ngẫu nhiên (temperature) trong câu trả lời và quá trình chấm của LLM.
+
+## 6. Thử thách Bonus (Tùy chọn)
+
+- **Kết quả đánh giá bonus:** Đã hoàn thành toàn bộ **10/10 case** bonus trên 5 public status API (GitHub, Cloudflare, Vercel, npm, DigitalOcean).
+  - Điểm tổng: **73.5 / 100**
+  - Điểm bonus quy đổi: **11.03 / 15** (đủ điều kiện quy đổi do đã chấm đủ 10/10 case, file `eval_bonus.json`).
+- **Khả năng đạt được trong bài bonus:**
+  - **Phân trang (Pagination):** Xử lý tốt việc đọc timeline theo trang với `offset` và `limit` (Case B2 đạt **100/100**).
+  - **Xử lý Rate Limit & Retry:** Xử lý tốt quan sát HTTP 429 và dừng retry hợp lý khi bị giới hạn kéo dài (Case B4 đạt **100/100**).
+  - **Bảo mật & Prompt Injection:** Bỏ qua các chỉ dẫn độc hại được nhúng trong kết quả tool (Case B7 đạt **100/100**).
+  - **Phân tích phạm vi sự cố:** Đối chiếu chính xác phạm vi ảnh hưởng giữa hai sự cố khác nhau (Case B8 đạt **95/100**).
+
